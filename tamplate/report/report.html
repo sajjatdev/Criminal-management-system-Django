@@ -1,0 +1,57 @@
+{% include 'index.html' %} {% block BASEVIEW %}
+
+<div class="mt-5 w-full flex items-center justify-center">
+  <form
+    class="w-[400px] shadow-md space-y-5 p-5 text-center"
+    method="POST"
+    action="{% url 'report' %}"
+    enctype="multipart/form-data"
+  >
+    <h1 class="text-[25px] font-bold">Report Form</h1>
+    {% csrf_token %} {{form.as_p}}
+    <!-- <input
+      type="text"
+      class="border-none w-full h-[35px] rounded-lg px-2 focus:outline-none ring-2 ring-blue-300 focus:hover:ring-3 focus:hover:ring-blue-400"
+      name=""
+      id=""
+    /> -->
+    <button
+      type="submit"
+      class="middle none center rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+      data-ripple-light="true"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+<section>
+  <div
+    class="w-full h-[200px] bg-blue-400 mt-10 p-5 flex items-center justify-between"
+  >
+    <div class="w-2/6">
+      <h1 class="text-[20px] text-white font-sans font-bold">USEFUL LINKS</h1>
+      <p class="text-white font-sans">
+        Bangladesh Police | Ministry of Home Affairs | Immigration Police | RAB
+        | Ansar VDP | PBI | Desco | BTCL | Fire Service | Bangladesh Betar
+      </p>
+    </div>
+    <div class="w-2/6 flex items-center">
+      <img
+        class="w-[200px]"
+        src="https://www.police.gov.bd/storage/upload/logo/en.png"
+        alt=""
+      />
+    </div>
+    <div class="w-2/6">
+      <iframe
+        src="https://www.youtube.com/embed/YM0qEq9bkZM"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+{% endblock BASEVIEW %}
