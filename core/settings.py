@@ -12,41 +12,49 @@ SECRET_KEY = 'django-insecure-pfr#2sp=kk9^4*ry+qmu^q(ku6j$1su%r-z)_k4=nhj=z@#ma!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+
+ADMINURLAPP = [
+    # 'jazzmin',
+    # 'simpleui',
+    'AdminUI',
+]
 
 
 # Application definition
 SYSTEM_APP = [
-
-    'jazzmin',
-    # 'admin_volt.apps.AdminVoltConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',]
+
+
 LOCAL_APP = [
     "account",
     "criminal",
     'settings',
     'view',
-
+    'law',
 ]
 
 THRID_PARTY_APP = [
     "djoser",
     "corsheaders",
 
+
 ]
 
 
-INSTALLED_APPS = SYSTEM_APP+LOCAL_APP+THRID_PARTY_APP
+INSTALLED_APPS = ADMINURLAPP+SYSTEM_APP+LOCAL_APP+THRID_PARTY_APP
 
 LOGIN_REDIRECT_URL = '/'
 AUTH_USER_MODEL = "account.Account"
 
 MIDDLEWARE = [
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
@@ -64,7 +72,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'tamplate')],
+        'DIRS': [os.path.join(BASE_DIR, 'tamplate'), os.path.join(BASE_DIR, 'simpleui/tamplate')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,8 +93,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'systemDataBase',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -125,9 +137,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
+# STATIC_ROOT = BASE_DIR / 'static'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/'),
+]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
@@ -138,17 +154,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-JAZZMIN_SETTINGS = {
-    "site_title": "Criminal Management System Admin",
-    "site_header": "Criminal Management System",
-    "site_logo": "logo/logo.jpeg",
-    "welcome_sign": "Welcome to the Criminal Management System",
-    "copyright": "Criminal Management System",
-    "icons": {
-        "account.Account": "fas fa-user",
-        "auth.Group": "fas fa-users",
-        "criminal.CasesModel": "fas fa-book",
-        "criminal.CriminalModel": "fas fa-users",
-    },
-    "show_ui_builder": True,
-}
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'nrs110906@gmail.com'
+EMAIL_HOST_PASSWORD = 'sdvbzozuhgyhlgpq'

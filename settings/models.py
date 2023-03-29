@@ -10,7 +10,7 @@ class Punishment(models.Model):
     class Meta:
         db_table = 'Punishment'
         verbose_name = 'Punishment'
-        verbose_name_plural = 'Punishments'
+        verbose_name_plural = 'Punishment List'
 
     def __str__(self):
 
@@ -25,7 +25,7 @@ class CrimeType(models.Model):
     class Meta:
         db_table = 'crimeType'
         verbose_name = 'Crime Type'
-        verbose_name_plural = 'Crime Types'
+        verbose_name_plural = 'Crime Type List'
 
     def __str__(self):
         return self.name
@@ -39,7 +39,7 @@ class CriminalStatus(models.Model):
     class Meta:
         db_table = 'criminalStatus'
         verbose_name = 'Criminal Status'
-        verbose_name_plural = 'Criminal Status'
+        verbose_name_plural = 'Criminal Status List'
 
     def __str__(self):
         return self.name
@@ -49,8 +49,8 @@ class District(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
     class Meta:
-        verbose_name = 'District'
-        verbose_name_plural = 'Districts'
+        verbose_name = 'DMP'
+        verbose_name_plural = 'DMP List'
 
     def __str__(self):
         return self.name
@@ -64,7 +64,7 @@ class Station(models.Model):
     class Meta:
 
         verbose_name = 'Station'
-        verbose_name_plural = 'Stations'
+        verbose_name_plural = 'Station List'
 
     def __str__(self):
         return self.name
@@ -76,7 +76,7 @@ class Postion(models.Model):
     class Meta:
 
         verbose_name = 'Postion'
-        verbose_name_plural = 'Postions'
+        verbose_name_plural = 'Postion List'
 
     def __str__(self):
         return self.name

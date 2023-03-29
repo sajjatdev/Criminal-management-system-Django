@@ -1,0 +1,50 @@
+{% include 'index.html' %} {% block BASEVIEW %}
+
+<section>
+  <h1 style="font-size: 40px; padding-top: 30px; padding-bottom: 25px">
+    Find your Stations
+  </h1>
+
+  <div class="mt-5 grid grid-cols-3 gap-5 text-center">
+    {% for item in station %}
+    <div class="text-center shadow-md rounded-md">
+      <img src="{{item.image.url}}" alt="" />
+      <h1 class="text-[20px]">Station Name: {{item.stationName}}</h1>
+      <h1>Office Phone: {{item.phone}}</h1>
+      <h1>Office Email: {{item.phone2}}</h1>
+      <h1>Station Address: {{item.address}}</h1>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section>
+  <div
+    class="w-full h-[200px] bg-blue-400 mt-10 p-5 flex items-center justify-between"
+  >
+    <div class="w-2/6">
+      <h1 class="text-[20px] text-white font-sans font-bold">USEFUL LINKS</h1>
+      <p class="text-white font-sans">
+        Bangladesh Police | Ministry of Home Affairs | Immigration Police | RAB
+        | Ansar VDP | PBI | Desco | BTCL | Fire Service | Bangladesh Betar
+      </p>
+    </div>
+    <div class="w-2/6 flex items-center">
+      <img
+        class="w-[200px]"
+        src="https://www.police.gov.bd/storage/upload/logo/en.png"
+        alt=""
+      />
+    </div>
+    <div class="w-2/6">
+      <iframe
+        src="https://www.youtube.com/embed/YM0qEq9bkZM"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+{% endblock BASEVIEW %}

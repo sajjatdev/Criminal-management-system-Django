@@ -8,13 +8,13 @@
     <title>Criminal Management System</title>
     <link rel="stylesheet" href="{% static 'css/output.css' %}" />
   </head>
-  <body class="px-40">
+  <body style="padding: 0 80px 0 80px">
     <section>
       <div
         class="w-ful h-[40px] px-5 bg-blue-200 flex items-center justify-between"
       >
         <div class="flex space-x-5">
-          <a href=""
+          <a href="https://www.facebook.com/dmpdhaka/"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -28,7 +28,7 @@
               />
             </svg>
           </a>
-          <a href="">
+          <a href="https://www.youtube.com/channel/UCaSq8545hzRp0pgSa6Y4Dtg">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -42,7 +42,7 @@
               />
             </svg>
           </a>
-          <a href="">
+          <a href="https://twitter.com/dhakampolice?lang=en">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -96,10 +96,18 @@
           <h1 class="text-white text-[15px] select-none">Important Contact</h1>
         </a>
       </div>
-      <div class="w-ful h-[80px] px-5 bg-blue-500 flex items-center space-x-5">
-        <a class="text-white text-[18px]" href="/">Home</a>
-        <a class="text-white text-[18px]" href="/report/">Report a Crime</a>
-        <a class="text-white text-[18px]" href="/about/">About</a>
+      <div class="w-ful h-[80px] px-5 bg-blue-500 flex items-center space-x-10">
+        <a class="text-white text-[18px] font-sans" href="/">Home</a>
+        <a class="text-white text-[18px] font-sans" href="/about/">About</a>
+        <a class="text-white text-[18px] font-sans" href="/report/"
+          >Report a Crime</a
+        >
+        <a class="text-white text-[18px] font-sans" href="/tracking/"
+          >Track your Report</a
+        >
+        <a class="text-white text-[18px] font-sans" href="/stations/"
+          >Find your Station</a
+        >
       </div>
     </section>
     {% block BASEVIEW %} {% endblock BASEVIEW %}

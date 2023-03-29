@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from criminal.models import CasesModel, CriminalModel, PunishmentModel
+from criminal.models import CasesModel, CriminalModel, VictimModel
+from law.models import PunishmentModel
 
 
-admin.site.site_header = 'Criminal Management'
+admin.site.site_header = 'Criminal Management System'
 
 
 class PunishmentInline(admin.StackedInline):
@@ -13,9 +14,23 @@ class PunishmentInline(admin.StackedInline):
     extra = 1
 
 
+class CriminalInline(admin.StackedInline):
+    model = CriminalModel
+    can_delete = False
+    verbose_name_plural = 'Criminal'
+    extra = 1
+
+
+class VictimInline(admin.StackedInline):
+    model = VictimModel
+    can_delete = False
+    verbose_name_plural = 'Victim'
+    extra = 1
+
+
 @admin.register(CriminalModel)
 class CriminalAdminView(admin.ModelAdmin):
-    inlines = (PunishmentInline, )
+    inlines = (PunishmentInline,)
 
     list_display = ['name', 'profile_Photo',
                     'ID_Photo', 'documant_type', 'dateOfBirth', 'caseStatus',]
@@ -38,8 +53,9 @@ class CriminalAdminView(admin.ModelAdmin):
 
 @admin.register(CasesModel)
 class CasesAdminView(admin.ModelAdmin):
+    inlines = (CriminalInline, VictimInline)
     list_display = ['id', 'title', 'userName', 'create_at',  'status']
 
     def userName(self, obj):
         return obj.user.first_name + " " + obj.user.last_name
-    userName.short_description = 'User'
+    userName.short_description = 'Case Handle by'

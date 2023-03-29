@@ -17,6 +17,10 @@ django-admin-soft-dashboard = "*"
 install = "*"
 django-filter = "*"
 django-admin-volt = "*"
+whitenoise = "*"
+pymysql = "*"
+django-twilio = "*"
+django-nexmo = "*"
 
 [dev-packages]
 

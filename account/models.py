@@ -44,8 +44,8 @@ class Account(AbstractBaseUser, PermissionsMixin):
     )
 
     class Meta:
-        verbose_name = 'User'
-        verbose_name_plural = 'User List'
+        verbose_name = 'Account'
+        verbose_name_plural = 'Account List'
 
     def Name(self):
         return f'{self.first_name} {self.last_name}'
@@ -71,8 +71,8 @@ class StaffAccountProfile(models.Model):
 
     class Meta:
         db_table = "staffProfile"
-        verbose_name = 'StaffAccountProfile'
-        verbose_name_plural = 'StaffAccountProfiles'
+        verbose_name = 'Staff Profile  List'
+        verbose_name_plural = 'Staff Profile  List'
 
     def __str__(self):
         return self.cardNumber
@@ -90,8 +90,8 @@ class UserAccount(models.Model):
 
     class Meta:
 
-        verbose_name = 'UserAccount'
-        verbose_name_plural = 'UserAccounts'
+        verbose_name = 'User Account'
+        verbose_name_plural = 'User Accounts List'
 
     def __str__(self):
         return self.userAccount
