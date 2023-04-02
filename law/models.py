@@ -13,12 +13,11 @@ class CourtModel(models.Model):
 
     class Meta:
 
-        verbose_name = 'Court'
-        verbose_name_plural = 'Court List'
+        verbose_name = 'Judge'
+        verbose_name_plural = 'Judge List'
 
     def __str__(self):
-
-        pass
+        return self.JudgeName
 
 
 class PunishmentModel(models.Model):

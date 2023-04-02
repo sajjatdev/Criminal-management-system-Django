@@ -45,19 +45,7 @@ class CriminalStatus(models.Model):
         return self.name
 
 
-class District(models.Model):
-    name = models.CharField(max_length=255, unique=True)
-
-    class Meta:
-        verbose_name = 'DMP'
-        verbose_name_plural = 'DMP List'
-
-    def __str__(self):
-        return self.name
-
-
 class Station(models.Model):
-    District = models.ForeignKey(District, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, unique=True)
     address = models.CharField(max_length=255)
 

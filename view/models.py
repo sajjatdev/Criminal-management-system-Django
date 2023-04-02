@@ -38,8 +38,8 @@ class ReportModel(models.Model):
             send_mail(
                 "Report Status Tracking ID",
                 'Hello '+self.name+' Your report is accepted. Please note down this ID' +
-                self.ID+'  to see your GD/ report Status anytime. Thank You'
-                'ueccse1@gmail.com',
+                self.ID+'  to see your GD/ report Status anytime. Thank You',
+                'nrs110906@gmail.com',
                 [self.email], fail_silently=False)
         return super(ReportModel, self).save(*args, **kwargs)
 

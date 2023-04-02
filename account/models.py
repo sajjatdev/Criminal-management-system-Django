@@ -1,5 +1,5 @@
 
-from settings.models import District, Postion, Station
+from settings.models import Postion, Station
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 
@@ -65,7 +65,7 @@ class StaffAccountProfile(models.Model):
         max_length=255, unique=True, verbose_name="ID Number",)
     cardImage = models.ImageField(
         upload_to="cardImage/", verbose_name="ID Photo",  default="cardImage/card.jpeg")
-    district = models.ForeignKey(District, on_delete=models.CASCADE)
+
     station = models.ForeignKey(Station, on_delete=models.CASCADE)
     position = models.ForeignKey(Postion, on_delete=models.CASCADE)
 
