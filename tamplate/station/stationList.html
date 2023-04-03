@@ -7,12 +7,20 @@
 
   <div class="mt-5 grid grid-cols-3 gap-5 text-center">
     {% for item in station %}
-    <div class="text-center shadow-md rounded-md">
-      <img src="{{item.image.url}}" alt="" />
-      <h1 class="text-[20px]">Station Name: {{item.stationName}}</h1>
-      <h1>Office Phone: {{item.phone}}</h1>
-      <h1>Office Email: {{item.phone2}}</h1>
-      <h1>Station Address: {{item.address}}</h1>
+    <div class="text-center shadow-md rounded-md" style="padding-bottom: 20px">
+      <img
+        width="100%"
+        height="70%"
+        style="object-fit: cover"
+        src="{{item.image.url}}"
+        alt=""
+      />
+      <div style="padding: 5px">
+        <h1 class="text-[20px]">Station Name: {{item.stationName}}</h1>
+        <h1>Office Phone: {{item.phone}}</h1>
+        <h1>Office Email: {{item.phone2}}</h1>
+        <h1>Station Address: {{item.address}}</h1>
+      </div>
     </div>
     {% endfor %}
   </div>
